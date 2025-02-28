@@ -1,9 +1,9 @@
+import SplitContainer from '@/components/Split/SplitContainer'
+import ResumeForm from '@/features/ResumeForm/ResumeForm'
+import ResumePreview from '@/features/ResumePreview/ResumePreview'
+import { TFormState } from '@/shared/types'
 import { createFileRoute } from '@tanstack/react-router'
 import { useActionState } from 'react'
-import SplitContainer from '../components/Split/SplitContainer'
-import ResumeForm from '../features/ResumeForm/ResumeForm'
-import ResumePreview from '../features/ResumePreview/ResumePreview'
-import { TFormState } from '../shared/types'
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,

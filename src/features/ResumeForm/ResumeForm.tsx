@@ -1,6 +1,7 @@
 type ResumeFormProps = {
   actionFn: (payload: FormData) => void
 }
+
 const ResumeForm = ({ actionFn }: ResumeFormProps) => {
   return (
     <form action={actionFn} className='p-4 space-y-4 w-full'>

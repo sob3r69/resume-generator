@@ -1,33 +1,33 @@
-import React, { Children, JSX, useCallback, useEffect, useRef, useState } from 'react'
+import React, { Children, JSX, useEffect, useRef, useState } from 'react'
 import Splitter from './Splitter'
 
 type SplitContainerProps = {
   children: JSX.Element[]
 }
 
+/**
+ * This component is used to split the screen in two equal and resizable parts
+ */
 const SplitContainer = ({ children }: SplitContainerProps) => {
   const [isResizing, setIsResizing] = useState(false)
   const [splitPosition, setSplitPosition] = useState(25)
   const separatorRef = useRef<HTMLDivElement>(null)
 
-  const startResizing = useCallback((e: React.MouseEvent) => {
+  const startResizing = (e: React.MouseEvent) => {
     setIsResizing(true)
-  }, [])
+  }
 
-  const stopResizing = useCallback(() => {
+  const stopResizing = () => {
     setIsResizing(false)
-  }, [])
+  }
 
-  const resize = useCallback(
-    (e: MouseEvent) => {
-      if (isResizing) {
-        const viewport = document.documentElement.clientWidth
-        const newPosition = (e.clientX / viewport) * 100
-        setSplitPosition(Math.min(Math.max(newPosition, 10), 90))
-      }
-    },
-    [isResizing],
-  )
+  const resize = (e: MouseEvent) => {
+    if (isResizing) {
+      const viewport = document.documentElement.clientWidth
+      const newPosition = (e.clientX / viewport) * 100
+      setSplitPosition(Math.min(Math.max(newPosition, 10), 90))
+    }
+  }
 
   useEffect(() => {
     window.addEventListener('mousemove', resize)

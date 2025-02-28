@@ -1,4 +1,4 @@
-import { TFormState } from '../../shared/types'
+import { TFormState } from '@/shared/types'
 
 type ResumePreviewProps = {
   state: TFormState | undefined
